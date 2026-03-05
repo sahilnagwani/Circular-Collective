@@ -1,0 +1,94 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Primary background: #F7F7F5 */
+    --background: 60 8% 96%;
+    /* Primary text: #1E1E1E */
+    --foreground: 0 0% 12%;
+    
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 12%;
+    
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 12%;
+    
+    /* Primary Brand: #4F6F52 (Muted forest green) */
+    --primary: 126 17% 37%;
+    --primary-foreground: 60 8% 98%;
+    
+    /* Secondary: #F1F1ED */
+    --secondary: 60 11% 94%;
+    --secondary-foreground: 0 0% 12%;
+    
+    --muted: 60 11% 94%;
+    --muted-foreground: 0 0% 42%;
+    
+    /* Accent: #D9C7A3 (Warm beige) */
+    --accent: 40 42% 75%;
+    --accent-foreground: 0 0% 12%;
+    
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    
+    --border: 60 5% 90%;
+    --input: 60 5% 90%;
+    --ring: 126 17% 37%;
+    
+    --radius: 0.75rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground overflow-x-hidden;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@layer components {
+  .font-headline {
+    font-family: 'Playfair Display', serif;
+  }
+
+  .glass-header {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  .editorial-shadow {
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.05);
+  }
+
+  .hover-lift {
+    @apply transition-all duration-300;
+  }
+  
+  .hover-lift:hover {
+    @apply -translate-y-1;
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.05);
+  }
+}
+
+@layer utilities {
+  @keyframes fade-in-up {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fade-in-up {
+    animation: fade-in-up 0.8s ease-out forwards;
+  }
+}
